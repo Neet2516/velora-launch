@@ -17,6 +17,8 @@ export default {
         },
       },
       fontFamily: {
+        // Mount Sagilite brand font
+        sagilite: ['"Mount Sagilite"', 'Georgia', 'serif'],
         // Elegant serif for big hero & section headings
         serif: ['"Cormorant Garamond"', 'Georgia', 'serif'],
         // Modern geometric sans for body text & UI

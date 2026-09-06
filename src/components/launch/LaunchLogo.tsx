@@ -1,4 +1,4 @@
-﻿import React from 'react';
+import React from 'react';
 import { motion } from 'framer-motion';
 
 interface LaunchLogoProps {
@@ -41,28 +41,28 @@ export const LaunchLogo: React.FC<LaunchLogoProps> = ({ reducedMotion = false })
     >
       {/* 1. Subtle, Clean Ambient Behind-Glow (Cobalt & Ice) */}
       <div
-        className="absolute rounded-full pointer-events-none blur-2xl"
+        className="absolute rounded-full pointer-events-none blur-3xl"
         style={{
-          width: 'clamp(240px, 35vw, 420px)',
-          height: 'clamp(90px, 15vw, 160px)',
+          width: 'clamp(320px, 48vw, 620px)',
+          height: 'clamp(120px, 20vw, 220px)',
           background:
-            'radial-gradient(ellipse, rgba(171, 210, 250, 0.25) 0%, rgba(118, 146, 255, 0.12) 45%, transparent 75%)',
+            'radial-gradient(ellipse, rgba(171, 210, 250, 0.28) 0%, rgba(118, 146, 255, 0.14) 45%, transparent 75%)',
         }}
       />
 
-      {/* 2. Authentic Velora Brand Typography (Clean, simple, professional sans-serif) */}
+      {/* 2. Authentic Velora Brand Typography (Mount Sagilite Font - Scaled Up) */}
       <div className="relative z-10 flex flex-col items-center justify-center">
-        <h2 className="font-sans font-bold text-[clamp(2.8rem,7.2vw,5.8rem)] uppercase tracking-[0.24em] leading-none text-center text-transparent bg-clip-text bg-gradient-to-b from-white via-[#f0f6ff] to-[#ABD2FA] filter drop-shadow-[0_0_18px_rgba(171,210,250,0.65)] drop-shadow-[0_0_35px_rgba(118,146,255,0.4)] drop-shadow-[0_4px_16px_rgba(5,12,38,0.95)] select-none pl-[0.24em]">
+        <h2 className="font-sagilite text-[clamp(4.2rem,11.5vw,9.6rem)] uppercase tracking-[0.18em] sm:tracking-[0.24em] leading-none text-center text-transparent bg-clip-text bg-gradient-to-b from-white via-[#f0f6ff] to-[#ABD2FA] filter drop-shadow-[0_0_24px_rgba(171,210,250,0.7)] drop-shadow-[0_0_48px_rgba(118,146,255,0.45)] drop-shadow-[0_4px_20px_rgba(5,12,38,0.98)] select-none pl-[0.18em] sm:pl-[0.24em]">
           VELORA
         </h2>
 
         {/* Global Subtitle Rule: — GLOBAL — (Original colors) */}
-        <div className="flex items-center justify-center gap-2.5 mt-1.5 sm:mt-2">
-          <span className="h-[1px] w-10 sm:w-16 bg-gradient-to-r from-transparent to-[#7692FF]/80" />
-          <span className="font-sans font-semibold tracking-[0.45em] text-[#ABD2FA] text-[10px] sm:text-xs uppercase leading-none drop-shadow-[0_0_8px_rgba(171,210,250,0.5)] pl-[0.45em]">
+        <div className="flex items-center justify-center gap-3 mt-2 sm:mt-2.5">
+          <span className="h-[1px] w-12 sm:w-20 bg-gradient-to-r from-transparent to-[#7692FF]/80" />
+          <span className="font-sans font-semibold tracking-[0.48em] text-[#ABD2FA] text-[11px] sm:text-xs uppercase leading-none drop-shadow-[0_0_8px_rgba(171,210,250,0.5)] pl-[0.48em]">
             GLOBAL
           </span>
-          <span className="h-[1px] w-10 sm:w-16 bg-gradient-to-l from-transparent to-[#1B2CC1]/80" />
+          <span className="h-[1px] w-12 sm:w-20 bg-gradient-to-l from-transparent to-[#1B2CC1]/80" />
         </div>
       </div>
     </motion.div>

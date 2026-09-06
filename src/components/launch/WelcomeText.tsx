@@ -45,15 +45,15 @@ export const WelcomeText: React.FC<WelcomeTextProps> = ({ reducedMotion = false 
       }}
     >
       {/* Left Hairline Gradient Rule */}
-      <span className="h-[1px] w-8 sm:w-14 bg-gradient-to-r from-transparent via-[#7692FF]/55 to-[#ABD2FA]/80" />
+      <span className="h-[1.5px] w-10 sm:w-20 md:w-28 bg-gradient-to-r from-transparent via-[#7692FF]/65 to-[#ABD2FA]" />
 
-      {/* High-Readability Editorial Text */}
-      <span className="font-sans font-light text-xs sm:text-sm md:text-[15px] tracking-[0.38em] text-white/95 uppercase drop-shadow-[0_2px_8px_rgba(5,12,38,0.95)]">
+      {/* High-Readability Editorial Text - Scaled Up */}
+      <span className="font-sans font-normal text-sm sm:text-base md:text-lg lg:text-xl tracking-[0.38em] sm:tracking-[0.45em] text-white/95 uppercase drop-shadow-[0_2px_12px_rgba(5,12,38,0.98)] drop-shadow-[0_0_15px_rgba(171,210,250,0.55)] pl-[0.38em] sm:pl-[0.45em]">
         WELCOME TO THE
       </span>
 
       {/* Right Hairline Gradient Rule */}
-      <span className="h-[1px] w-8 sm:w-14 bg-gradient-to-l from-transparent via-[#7692FF]/55 to-[#ABD2FA]/80" />
+      <span className="h-[1.5px] w-10 sm:w-20 md:w-28 bg-gradient-to-l from-transparent via-[#7692FF]/65 to-[#ABD2FA]" />
     </motion.div>
   );
 };
