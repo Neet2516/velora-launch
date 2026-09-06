@@ -27,9 +27,8 @@ export const WelcomeText: React.FC<WelcomeTextProps> = ({ reducedMotion = false 
             }
           : {
               opacity: [0, 1, 1, 1, 0],
-              y:       [8, 0, 0, 0, -4],
               filter:  [
-                'blur(6px)',
+                'blur(4px)',
                 'blur(0px)',
                 'blur(0px)',
                 'blur(0px)',
