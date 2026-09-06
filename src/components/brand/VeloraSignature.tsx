@@ -8,15 +8,17 @@ interface VeloraSignatureProps {
   innerStrokeColor?: string;
   delay?: number;
   glow?: boolean;
+  theme?: 'default' | 'darkBlue';
 }
 
 export const VeloraSignature: React.FC<VeloraSignatureProps> = ({
   className = 'w-full h-auto',
   animated = false,
-  strokeColor = '#ffffff',
-  innerStrokeColor = '#ABD2FA',
+  strokeColor,
+  innerStrokeColor,
   delay = 0,
   glow = true,
+  theme = 'default',
 }) => {
   const letters = [
     // V
@@ -68,16 +70,40 @@ export const VeloraSignature: React.FC<VeloraSignatureProps> = ({
 
   const filterId = React.useId().replace(/:/g, '_');
 
+  const isDarkBlue = theme === 'darkBlue';
+  const effectiveStroke = strokeColor || (isDarkBlue ? `url(#sigDarkBlue_${filterId})` : '#ffffff');
+  const effectiveInnerStroke = innerStrokeColor || (isDarkBlue ? `url(#sigDarkBlueInner_${filterId})` : '#ABD2FA');
+
+  const glowClasses = glow
+    ? isDarkBlue
+      ? 'drop-shadow-[0_0_12px_rgba(37,57,217,0.95)] drop-shadow-[0_0_28px_rgba(27,44,193,0.85)] drop-shadow-[0_0_48px_rgba(118,146,255,0.45)]'
+      : 'drop-shadow-[0_0_8px_rgba(118,146,255,0.22)]'
+    : '';
+
   return (
     <svg
       viewBox="18 4 444 130"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
-      className={`${className} ${glow ? 'drop-shadow-[0_0_8px_rgba(118,146,255,0.22)]' : ''}`}
+      className={`${className} ${glowClasses}`}
     >
       <defs>
-        <filter id={`sigGlow_${filterId}`} x="-20%" y="-20%" width="140%" height="140%">
-          <feGaussianBlur stdDeviation="0.6" result="blur" />
+        {/* Dark Blue Theme Rich Gradients */}
+        <linearGradient id={`sigDarkBlue_${filterId}`} x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" stopColor="#4364fa" />
+          <stop offset="35%" stopColor="#1B2CC1" />
+          <stop offset="70%" stopColor="#1421a8" />
+          <stop offset="100%" stopColor="#0b1356" />
+        </linearGradient>
+
+        <linearGradient id={`sigDarkBlueInner_${filterId}`} x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" stopColor="#8da4ff" />
+          <stop offset="50%" stopColor="#3d5dfd" />
+          <stop offset="100%" stopColor="#1B2CC1" />
+        </linearGradient>
+
+        <filter id={`sigGlow_${filterId}`} x="-25%" y="-25%" width="150%" height="150%">
+          <feGaussianBlur stdDeviation={isDarkBlue ? '1.6' : '0.6'} result="blur" />
           <feMerge>
             <feMergeNode in="blur" />
             <feMergeNode in="SourceGraphic" />
@@ -90,7 +116,7 @@ export const VeloraSignature: React.FC<VeloraSignatureProps> = ({
           <motion.path
             key={idx}
             d={ltr.d}
-            stroke={strokeColor}
+            stroke={effectiveStroke}
             strokeWidth={ltr.width}
             strokeLinecap="round"
             strokeLinejoin="round"
@@ -103,7 +129,7 @@ export const VeloraSignature: React.FC<VeloraSignatureProps> = ({
           <path
             key={idx}
             d={ltr.d}
-            stroke={strokeColor}
+            stroke={effectiveStroke}
             strokeWidth={ltr.width}
             strokeLinecap="round"
             strokeLinejoin="round"
@@ -116,9 +142,9 @@ export const VeloraSignature: React.FC<VeloraSignatureProps> = ({
       {animated ? (
         <motion.path
           d={innerPath}
-          stroke={innerStrokeColor}
-          strokeWidth="1.4"
-          strokeOpacity="0.8"
+          stroke={effectiveInnerStroke}
+          strokeWidth={isDarkBlue ? '1.8' : '1.4'}
+          strokeOpacity={isDarkBlue ? '0.9' : '0.8'}
           strokeLinecap="round"
           fill="none"
           initial={{ pathLength: 0, opacity: 0 }}
@@ -128,9 +154,9 @@ export const VeloraSignature: React.FC<VeloraSignatureProps> = ({
       ) : (
         <path
           d={innerPath}
-          stroke={innerStrokeColor}
-          strokeWidth="1.4"
-          strokeOpacity="0.8"
+          stroke={effectiveInnerStroke}
+          strokeWidth={isDarkBlue ? '1.8' : '1.4'}
+          strokeOpacity={isDarkBlue ? '0.9' : '0.8'}
           strokeLinecap="round"
           fill="none"
         />

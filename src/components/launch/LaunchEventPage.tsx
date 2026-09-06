@@ -44,11 +44,11 @@ export const LaunchEventPage: React.FC = () => {
 
       {/* 3. Golden-Ratio Centered Stage for Master 13s Narrative */}
       <div className="relative z-10 w-full max-w-[1200px] max-h-[90vh] px-4 sm:px-8 flex flex-col items-center justify-center text-center">
-        {/* Tier 1: Authentic Cursive Velora Brand Identity */}
-        <LaunchLogo reducedMotion={shouldReduceMotion} />
-
-        {/* Tier 2: Editorial Subtitle: WELCOME TO */}
+        {/* Tier 1: Editorial Subtitle: WELCOME TO THE */}
         <WelcomeText reducedMotion={shouldReduceMotion} />
+
+        {/* Tier 2: Authentic Velora Brand Hero: VELORA */}
+        <LaunchLogo reducedMotion={shouldReduceMotion} />
 
         {/* Tier 3: Dramatic Climax Headline: LAUNCH EVENT */}
         <LaunchTitle reducedMotion={shouldReduceMotion} />

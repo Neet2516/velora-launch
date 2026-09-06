@@ -23,6 +23,10 @@ export default {
         sans: ['"Space Grotesk"', 'system-ui', 'sans-serif'],
         // Bold display for badges & labels
         display: ['Outfit', '"Space Grotesk"', 'system-ui', 'sans-serif'],
+        // Luxury Roman capital serif for high-finance prestige
+        cinzel: ['"Cinzel"', 'Georgia', 'serif'],
+        // Classic Times New Roman serif
+        times: ['"Times New Roman"', 'Times', 'serif'],
         // Monospace for data & code
         mono: ['"JetBrains Mono"', 'Fira Code', 'monospace'],
         // Handwritten cursive for luxury flourishes & thank you
