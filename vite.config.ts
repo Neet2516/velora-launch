@@ -14,8 +14,8 @@ export default defineConfig({
     port: 5173,
     open: false,
     watch: {
-      // Ignore binary fonts and videos from OS file watcher so OneDrive syncing does not throw EBUSY
-      ignored: ['**/*.ttf', '**/*.otf', '**/*.woff', '**/*.woff2', '**/*.mp4', '**/.git/**'],
+      // Ignore binary fonts, audio and videos from OS file watcher so OneDrive syncing does not throw EBUSY
+      ignored: ['**/*.ttf', '**/*.otf', '**/*.woff', '**/*.woff2', '**/*.mp4', '**/*.mp3', '**/.git/**'],
     },
   },
 });

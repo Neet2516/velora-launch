@@ -7,44 +7,57 @@ interface WelcomeTextProps {
 
 /**
  * WelcomeText
- * Authentic editorial subtitle matching HeroSection slogan tier.
- * Enhanced readability with crisp text-white/95 & ice-blue glow.
- * Flanked by Velora's signature gradient hairlines.
- * Reveals smoothly at 4.8s using [0.16, 1, 0.3, 1] ease.
+ * Authentic editorial subtitle with refined typography.
+ * Uses font-light, refined letter spacing (0.38em), and crisp text-white/95.
+ * 
+ * 13s Timeline:
+ * - 0s–5s: Hidden
+ * - 5s–7s: Elegant reveal using [0.16, 1, 0.3, 1] ease
+ * - 7s–9.5s: Fully visible while LAUNCH EVENT reveals
+ * - 9.5s–11.8s: FULL COMPOSITION HOLD
+ * - 11.8s–13s: Smooth dissolve into restart
  */
 export const WelcomeText: React.FC<WelcomeTextProps> = ({ reducedMotion = false }) => {
   return (
     <motion.div
-      className="flex items-center justify-center gap-3 sm:gap-4 my-2.5 sm:my-3.5 select-none pointer-events-none z-20"
+      className="flex items-center justify-center gap-3 sm:gap-4 my-2 sm:my-3 select-none pointer-events-none z-20"
       animate={
         reducedMotion
           ? {
-              opacity: [0, 0, 1, 1, 1, 0, 0],
+              opacity: [0, 0, 1, 1, 1, 0],
             }
           : {
-              opacity:       [0, 0, 1, 1, 1, 0, 0],
-              y:             [14, 14, 0, 0, 0, -8, 14],
-              letterSpacing: ['0.3em', '0.3em', '0.44em', '0.44em', '0.44em', '0.48em', '0.3em'],
+              opacity: [0, 0, 1, 1, 1, 0],
+              y:       [10, 10, 0, 0, 0, -4],
+              filter:  [
+                'blur(6px)',
+                'blur(6px)',
+                'blur(0px)',
+                'blur(0px)',
+                'blur(0px)',
+                'blur(4px)',
+              ],
             }
       }
       transition={{
         duration: 13,
         repeat: Infinity,
         ease: [0.16, 1, 0.3, 1],
-        // 0s(0), 4.8s(0.369), 6.5s(0.500), 7.5s(0.577), 11.4s(0.877), 12.5s(0.962), 13s(1.0)
-        times: [0, 0.369, 0.500, 0.577, 0.877, 0.962, 1.0],
+        // Keyframes: 0s(0), 5.0s(0.385), 7.0s(0.538), 9.5s(0.731), 11.8s(0.908), 13.0s(1.0)
+        times: [0, 0.385, 0.538, 0.731, 0.908, 1.0],
       }}
     >
       {/* Left Hairline Gradient Rule */}
-      <span className="h-[1px] w-10 sm:w-16 bg-gradient-to-r from-transparent via-[#7692FF]/70 to-[#ABD2FA]" />
+      <span className="h-[1px] w-8 sm:w-14 bg-gradient-to-r from-transparent via-[#7692FF]/55 to-[#ABD2FA]/80" />
 
       {/* High-Readability Editorial Text */}
-      <span className="font-sans font-normal text-sm sm:text-[15px] md:text-base tracking-[0.44em] text-white/95 uppercase drop-shadow-[0_2px_12px_rgba(5,12,38,0.98)] drop-shadow-[0_0_15px_rgba(171,210,250,0.5)]">
+      <span className="font-sans font-light text-xs sm:text-sm md:text-[15px] tracking-[0.38em] text-white/95 uppercase drop-shadow-[0_2px_12px_rgba(5,12,38,0.98)] drop-shadow-[0_0_12px_rgba(171,210,250,0.45)]">
         WELCOME TO
       </span>
 
       {/* Right Hairline Gradient Rule */}
-      <span className="h-[1px] w-10 sm:w-16 bg-gradient-to-l from-transparent via-[#7692FF]/70 to-[#ABD2FA]" />
+      <span className="h-[1px] w-8 sm:w-14 bg-gradient-to-l from-transparent via-[#7692FF]/55 to-[#ABD2FA]/80" />
     </motion.div>
   );
 };
+
